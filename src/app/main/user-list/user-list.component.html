@@ -1,0 +1,48 @@
+<div class="row pad-top mt-5">
+  <div class="col-xl-8 offset-xl-2">
+    <h3>USERS</h3>
+  </div>
+</div>
+<div class="row mb-5 mt-5">
+  <div class="col-xl-8 offset-xl-2">
+    <form>
+      <div class="row">
+        <div class="col">
+          <select name="userNameOnChange" id="" class="form-control" (change)="onChange()" [(ngModel)]="userNameOnChange">
+            <option value="all">All</option>
+            <option value="{{user.name}}" *ngFor="let user of users">{{user.name}}</option>
+          </select>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Search" id="userInputValue" name="userNameOnSearch" [(ngModel)]="userNameOnSearch" (keyup)="onSearch()" (focus)="resetToAll()" >
+        </div>
+        <div class="col">
+          <button class="form-control btn btn-primary" [routerLink]="['add']">Add User</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-8 offset-xl-2">
+    <table class="table table-striped" id="user-table-id">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Date Of Sign Up</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let user of users'>
+          <td class="user-table-name">{{user?.name}}</td>
+          <td>{{user?.email}}</td>
+          <td>{{user?.dateOfSignUp}}</td>
+          <td>
+            <button class="btn btn-success btn-sm" [routerLink]="['/main/users', user.id]"><i class="fa fa-edit"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

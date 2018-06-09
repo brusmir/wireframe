@@ -1,0 +1,25 @@
+.side-bg-color {
+  background-color: #161616;
+}
+
+.height {
+  min-height: 100vh;
+}
+
+.pad-top {
+  padding-top: 106px;
+}
+
+@media (max-width: 990px) {
+  html, body {
+    height: 100%;
+  }
+
+  div#slide {
+    position: absolute;
+    right: 0;
+    width: 30%;
+    z-index: 1000;
+    height: 100%;
+  }
+}

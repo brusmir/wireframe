@@ -1,0 +1,73 @@
+<div class="row pad-top mt-5">
+  <div class="col-xl-10 offset-xl-1">
+    <h3>ITEMS</h3>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-xl-10 offset-xl-1">
+    <form>
+      <div class="row">
+        <div class="col">
+          <select name="userNameOnChange" id="" class="form-control" [(ngModel)]="selectValue" (change)="onChange()">
+            <option value="all">All</option>
+            <option value="furniture">Furniture</option>
+            <option value="equipment">Equipment</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-right">
+            <label for="">From: </label>
+          </div>
+          <div class="col-md-8">
+            <input type="number" class="form-control" name="searchFrom" id="searchFrom" [(ngModel)]="searchFrom" (change)="onNumberChangeFrom()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-right">
+            <label for="">To: </label>
+          </div>
+          <div class="col-md-8">
+            <input type="number" class="form-control" [(ngModel)]="searchTo" name="searchTo" id="searchTo" (change)="onNumberChangeTo()">
+          </div>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Search by Name" id="inputTable" name="userNameOnSearch" (keyup)="searchTable()">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row pad-top mb-5 mt-2">
+  <div class="col-xl-10 offset-xl-1">
+    <table class="table table-striped" id="table-id">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Order Number</th>
+          <th scope="col">Category</th>
+          <th scope="col">Value</th>
+          <th scope="col">Description</th>
+          <th scope="col">Barcode</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let item of items'>
+          <td class="table-name">{{item?.name}}</td>
+          <td>{{item?.orderNumber}}</td>
+          <td class="table-category">{{item?.category}}</td>
+          <td class="table-value">{{item?.value}}</td>
+          <td>{{item?.description}}</td>
+          <td>{{item?.barcode}}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deleteItem(item.orderNumber)"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-success btn-sm" [routerLink]="[item.orderNumber]"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-primary btn-sm" [routerLink]="['add']"><i class="fa fas fa-plus"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-success mt-5" (click)="export()">Export to Excel</button>
+  </div>
+</div>

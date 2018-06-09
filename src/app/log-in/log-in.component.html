@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="row">
+        <div class="col">
+            <h1 class="bg-success text-light text-center py-2">LOGIN</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <form class="vcenter" (submit)="showMainPage()" [formGroup]="logForm">
+              <div class="form-group mb-4">
+                <input type="text" class="form-control" placeholder="Username" name="name" formControlName="name">
+                <div class="col" *ngIf="logForm.controls.name.touched">
+                  <div *ngIf="logForm.controls.name.errors?.required" class="text-danger">This field is required.</div>
+               </div>
+              </div>
+              <div class="form-group mb-4">
+                <input type="password" class="form-control" placeholder="Password" name="password" formControlName="password">
+                <div class="col" *ngIf="logForm.controls.password.touched">
+                  <div *ngIf="logForm.controls.password.errors?.required" class="text-danger">This field is required.</div>
+               </div>
+              </div>
+              <button type="submit" class="btn btn-success form-control mt-4 py-2" [disabled]="logForm.invalid">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

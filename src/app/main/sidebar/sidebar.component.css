@@ -1,0 +1,9 @@
+li.li-hover:hover {
+  background-color: rgba(255,255,255, .1);
+}
+
+@media (max-width: 990px) {
+  ul#sidebarList li {
+    padding-left: 15%;
+  }
+}

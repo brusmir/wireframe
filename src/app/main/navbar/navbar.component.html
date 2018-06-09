@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm navbar-light nav-bg-color fixed-top">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link logo-color" [routerLink]="['/main']" routerLinkActive="active">Wireframe</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <button class="btn btn-success px-3" (click)="logOut()">Log Out</button>
+      </li>
+    </ul>
+</nav>
+<header class="row fixed-top">
+  <div class="col-md-12">
+    <i class="fa fa-bars float-right mr-3 mt-2 d-lg-none" id="hamburger" (click)="showSlide()"></i>
+  </div>
+</header>

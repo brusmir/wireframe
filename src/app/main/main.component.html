@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col px-0">
+      <app-navbar></app-navbar>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 side-bg-color height pad-top d-none d-lg-block" id="slide">
+      <div class="row">
+        <div class="col-md-12">
+          <app-user></app-user>
+        </div>
+        <div class="col-md-12 px-0">
+          <app-sidebar></app-sidebar>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
